@@ -19,9 +19,13 @@ my_list = [1, 2, 3, 4]
 
 **Manipulate:**
 ```python
-my_list.append(5)   # Add element
-my_list.remove(2)   # Remove element
-my_list[0] = 10     # Update element
+y_list.append(5)   # Add element to the end
+my_list.insert(1, 15)  # Insert element at a specific position
+my_list.remove(2)   # Remove element by value
+removed_item = my_list.pop()  # Remove last element and return it
+my_list[0] = 10     # Update element by index
+my_list.sort()      # Sort the list in ascending order
+my_list.reverse()   # Reverse the list
 ```
 
 ---
