@@ -93,7 +93,7 @@ s1 = "World"
 ```python
 upper_string = my_string.upper()    # Convert to uppercase
 split_string = my_string.split(",") # Split into a list
-```
+
 # Using join() to concatenate multiple strings
 words = ["Python", "is", "awesome"]
 joined_string = " ".join(words)  # Join list elements with a space
@@ -119,3 +119,4 @@ upper_case = my_string.upper()  # Convert to uppercase
 lower_case = my_string.lower()  # Convert to lowercase
 print(upper_case)  # Output: HELLO, WORLD!
 print(lower_case)  # Output: hello, world!
+```
