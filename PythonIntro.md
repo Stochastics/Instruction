@@ -67,6 +67,13 @@ my_dict = {"name": "Alice", "age": 25}
 my_dict["age"] = 26         # Update value
 my_dict["city"] = "Paris"   # Add new key-value pair
 del my_dict["name"]         # Delete a key
+
+value = my_dict.get("city")    # Get a value safely
+keys = list(my_dict.keys())    # Get all keys
+values = list(my_dict.values())  # Get all values
+items = list(my_dict.items())    # Get all key-value pairs
+
+"city" in my_dict    # Check if key exists (returns True)
 ```
 
 ---
