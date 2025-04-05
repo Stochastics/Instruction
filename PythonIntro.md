@@ -6,7 +6,7 @@
 | List           | ✅      | ✅      | ✅                | ❌                |
 | Tuple          | ✅      | ❌      | ✅                | ❌                |
 | Set            | ❌      | ✅      | ❌                | ✅ (only unique elements) |
-| Dictionary     | ✅ (3.7+) | ✅    | Keys unique       | ✅                |
+| Dictionary     | ✅      | ✅      | Keys unique       | ✅                |
 | String         | ✅      | ❌      | ✅                | ❌                |
 
 ---
