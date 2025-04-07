@@ -1,3 +1,12 @@
+**What is a Data Structure?***
+A data structure is just a way to organize and store data so you can use it efficiently.
+Think of it like different types of boxes for different things:
+If you have a list of names → List
+If you have key-value pairs like a name and phone number → Dictionary
+If you need only unique items → Set
+If you want a bunch of items that never change → Tuple
+Different structures are better for different jobs depending on what you need to do — like searching fast, adding/removing easily, or keeping things in order.**
+
 
 # Common Python Data Structures
 
@@ -10,7 +19,9 @@
 | String         | ✅      | ❌      | ✅                | ❌                |
 
 ---
-
+ 
+ - A **method** is a function tied to an object, like `A.sort()` for a list, called with a dot to do something with that object.
+ 
 ## 1. List
 **Create:**
 ```python
@@ -19,7 +30,7 @@ my_list = [1, 2, 3, 4]
 
 **Manipulate:**
 ```python
-y_list.append(5)   # Add element to the end
+My_list.append(5)   # Add element to the end
 my_list.insert(1, 15)  # Insert element at a specific position
 my_list.remove(2)   # Remove element by value
 removed_item = my_list.pop()  # Remove last element and return it
@@ -85,8 +96,7 @@ items = list(my_dict.items())    # Get all key-value pairs
 ## 5. String
 **Create:**
 ```python
-s = "Hello"
-s1 = "World"
+my_string = "Hello, World!"  # Define the string first
 ```
 
 **Manipulate:**
@@ -120,3 +130,9 @@ lower_case = my_string.lower()  # Convert to lowercase
 print(upper_case)  # Output: HELLO, WORLD!
 print(lower_case)  # Output: hello, world!
 ```
+
+
+- A **method** is a function tied to an object, like `A.sort()` for a list, called with a dot to do something with that object. It’s a member of the object’s class, meaning it’s built into the object’s type (e.g., lists, strings) and designed to work with that specific object. For example, calling `A.sort()` directly modifies the list `A` because the method belongs to it. This makes code cleaner and more intuitive than using standalone functions.
+
+
+
