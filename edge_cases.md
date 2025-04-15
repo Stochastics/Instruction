@@ -122,8 +122,6 @@ Charlie,30
 
 - Why do edge cases matter in production systems?
 - How can you systematically discover edge cases?
-- Where’s the balance between simplicity and completeness?
-
 ---
 
 ## 🔬 Suggested Class Exercises
