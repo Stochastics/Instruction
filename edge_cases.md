@@ -138,5 +138,3 @@ Charlie,30
 | Boundary indexes   | Safely access first and last values in a list or dataframe. |
 
 ---
-
-✅ Use this sheet as a handout, or show code demos (e.g., `nltk`, regex, try/except) live in class for interactive learning.
