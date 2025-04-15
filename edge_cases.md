@@ -1,5 +1,5 @@
 
-# 🧪 Edge Cases in Data Processing: Cheat Sheet for Students
+# 🧪 Edge Cases in Data Processing: Cheat Sheet
 
 Edge cases are scenarios that occur at the boundaries or extremes of input data, often causing unexpected behavior. Handling them is critical for robust code and reliable results. Below are common edge cases, with explanations, examples, and strategies.
 
