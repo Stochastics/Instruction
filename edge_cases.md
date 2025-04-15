@@ -106,31 +106,15 @@ Charlie,30
 - Log errors.
 - Replace with fallback defaults.
 
----
-
-## 6. Boundary Conditions
-
-**Description**: Operations at data boundaries, like the first or last row, can behave differently.
-
-**Examples**:
-- Index errors at `list[-1]`
-- Missing values on rolling computations (`df.rolling(window=5)`)
-
-**Strategies**:
-- Explicitly handle edge indices.
-- Use `try/except IndexError`
-- Pad input or use defaults.
-- Visualize/test edge index behavior.
-
----
+--
 
 ## 🧠 General Strategies
 
+- **Iterate + Debug**: Use logs and print statements for edge debugging.
 - **Test Extensively**: Unit tests for edge inputs.
 - **Validate Early**: Catch problems at the input stage.
 - **Use Robust Libraries**: e.g., `pandas`, `nltk`, `decimal`.
 - **Document Assumptions**: State input/output expectations.
-- **Iterate + Debug**: Use logs and print statements for edge debugging.
 
 ---
 
