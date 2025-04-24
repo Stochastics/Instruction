@@ -1,4 +1,4 @@
-# 📘 Simple Git Tutorial for Students
+# 📘 Simple Git Tutorial
 
 ## 🚀 Everyday Git Workflow
 
