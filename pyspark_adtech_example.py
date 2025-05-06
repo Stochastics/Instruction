@@ -43,6 +43,7 @@ publisher_meta = spark.read.parquet("s3a://ad-company-meta/publisher_metadata.pa
 from pyspark.sql.functions import broadcast
 
 # Safe to broadcast since lookup tables are small (<10MB each)
+# Puts the smaller table in each worker node for faster joining 
 enriched = impressions \
     .join(broadcast(geo_lookup), on="geo_code", how="left") \
     .join(broadcast(publisher_meta), on="publisher_id", how="left")
