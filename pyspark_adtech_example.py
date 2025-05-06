@@ -48,6 +48,10 @@ enriched = impressions \
     .join(broadcast(geo_lookup), on="geo_code", how="left") \
     .join(broadcast(publisher_meta), on="publisher_id", how="left")
 
+# operations are lazy(not executed) if you don' want to re-run the logic can do like
+enriched.cache()
+# but need to actually do a .show(), or .collect or .write to execute the "pipeline" above
+
 # === STEP 4: UDF — parse user agent → device type ===
 # UDF used here since there's no built-in device parser in PySpark
 
