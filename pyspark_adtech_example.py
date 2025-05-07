@@ -52,6 +52,7 @@ enriched = impressions \
 enriched.cache()
 # but need to actually do a .show(), or .collect or .write to execute the "pipeline" above
 
+
 # === STEP 4: UDF — parse user agent → device type ===
 # UDF used here since there's no built-in device parser in PySpark
 
