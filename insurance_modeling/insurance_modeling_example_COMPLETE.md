@@ -60,7 +60,7 @@ Used to visually assess goodness-of-fit of each distribution.
 - Expected value calculation
 - Inflation-adjusted normalization (CPI trend)
 
-This project directly leveraged foundational statistics, making it a perfect real-world example of the power of probability, hypothesis testing, and distribution modeling in the insurance industry.
+This project directly leveraged foundational statistics, making it a perfect real-world example of the power of probability and distribution modeling in the insurance industry.
 
 
 ---
