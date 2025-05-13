@@ -155,29 +155,72 @@ This histogram shows simulated claim severities drawn from the Bayesian model. I
 ![Posterior Predictive](posterior_predictive.png)
 
 
-
-> 💡 **Bayesian Inference Refresher — Contextualized to Gamma Severity Modeling**
+> 💡 **Bayesian Inference — Simple Example with Normal Likelihood and Normal Prior**
 >
-> In Bayesian statistics, we update our beliefs about model parameters using Bayes’ Theorem:
+> Let's say we observe data from a Normal distribution with **known variance** (σ² = 1), but we **don’t know the mean** (μ). Our goal is to estimate μ using Bayesian inference.
 >
-> **Posterior ∝ Likelihood × Prior**
+> ---
+> ### 🔍 Step 1: Likelihood
+> Assume we observe one data point:
 >
-> Formally:
+> ```
+> x = 6.0
+> ```
 >
-> `p(θ | x) = (p(x | θ) * p(θ)) / p(x)`
+> We model this as:
 >
-> Where:
-> - `θ` = model parameters (e.g., shape α, rate β of the Gamma distribution)
-> - `x` = observed loss severities
-> - `p(θ)` = prior belief about parameters (e.g., HalfNormal for α, β)
-> - `p(x | θ)` = likelihood of data given parameters
-> - `p(θ | x)` = posterior distribution after seeing data
+> ```
+> x ~ Normal(μ, σ²=1)
+> ```
 >
-> In our case:
+> The **likelihood function** is:
 >
-> - `α ~ HalfNormal(σ = 10)`
-> - `β ~ HalfNormal(σ = 1e-4)`
-> - `x_i ~ Gamma(α, β)`
+> ```
+> p(x | μ) ∝ exp( -0.5 * (x - μ)² )
+> ```
 >
-> Using PyMC, we sampled from the posterior `p(α, β | x)` using MCMC, which gave us a full probabilistic estimate of claim severity risk.
-
+> ---
+> ### 🎯 Step 2: Prior
+> Suppose we believe μ is around 0, but we're uncertain. We use a **Normal prior**:
+>
+> ```
+> μ ~ Normal(0, τ²=4)
+> ```
+>
+> The **prior distribution** is:
+>
+> ```
+> p(μ) ∝ exp( -0.5 * (μ - 0)² / 4 )
+> ```
+>
+> ---
+> ### 🧠 Step 3: Posterior ∝ Likelihood × Prior
+> We combine the two:
+>
+> ```
+> p(μ | x) ∝ exp( -0.5 * (x - μ)² ) × exp( -0.5 * (μ² / 4) )
+> ```
+>
+> Multiply the exponents:
+>
+> ```
+> p(μ | x) ∝ exp( -0.5 * [ (x - μ)² + μ² / 4 ] )
+> ```
+>
+> Plug in `x = 6.0`:
+>
+> ```
+> p(μ | x=6) ∝ exp( -0.5 * [ (6 - μ)² + μ² / 4 ] )
+> ```
+>
+> This is the **unnormalized posterior**. It also turns out to be a Normal distribution! (Because the Normal is conjugate to itself.)
+>
+> ---
+> ### ✅ Result
+> If we do the math, the posterior turns out to be:
+>
+> ```
+> μ | x ~ Normal(mean = 4.8, variance = 0.8)
+> ```
+>
+> So after seeing the data, our updated belief about μ is centered near 4.8, with much tighter uncertainty than our original prior.
