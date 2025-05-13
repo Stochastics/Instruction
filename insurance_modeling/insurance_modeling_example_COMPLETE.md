@@ -153,3 +153,31 @@ These show the uncertainty in our estimates of the Gamma distribution’s shape 
 This histogram shows simulated claim severities drawn from the Bayesian model. It reflects both the data and the prior assumptions.
 
 ![Posterior Predictive](posterior_predictive.png)
+
+> 💡 **Bayesian Inference Refresher — Contextualized to Gamma Severity Modeling**
+>
+> In Bayesian statistics, we update our beliefs about model parameters using **Bayes’ Theorem**:
+>
+> \[
+> \text{Posterior} = \frac{\text{Likelihood} \times \text{Prior}}{\text{Evidence}} \quad \Rightarrow \quad p(\theta \mid x) = \frac{p(x \mid \theta) \cdot p(\theta)}{p(x)}
+> \]
+>
+> Where:
+> - \( \theta \) = model parameters (e.g., shape \(\alpha\), rate \(\beta\) of the Gamma distribution)
+> - \( x \) = observed loss severities
+> - \( p(\theta) \) = prior belief about parameters (e.g., HalfNormal for \(\alpha, \beta\))
+> - \( p(x \mid \theta) \) = likelihood of observed data given parameters
+> - \( p(\theta \mid x) \) = posterior distribution of parameters after seeing data
+>
+> In our case, we used:
+>
+> \[
+> \begin{align*}
+> \alpha &\sim \text{HalfNormal}(\sigma = 10) \\\\
+> \beta &\sim \text{HalfNormal}(\sigma = 1 \times 10^{-4}) \\\\
+> x_i &\sim \text{Gamma}(\alpha, \beta)
+> \end{align*}
+> \]
+>
+> PyMC used MCMC to sample from the posterior \( p(\alpha, \beta \mid x) \), giving us a full probabilistic picture of claim severity behavior.
+
