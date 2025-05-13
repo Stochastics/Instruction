@@ -1,7 +1,7 @@
 
 # Real-World Application: D&O Insurance Claims Modeling
 
-During my time at **Aon**, I worked on predictive modeling for Directors & Officers (D&O) insurance claims. This required applying principles from probability, statistical distributions, and expected value modeling to support business decisions around risk and pricing.
+I worked on a modeling project for Directors & Officers (D&O) insurance claims. This required applying principles from probability, statistical distributions, and expected value modeling to support business decisions around risk and pricing.
 
 ## 🔄 Workflow Overview
 
