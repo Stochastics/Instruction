@@ -154,30 +154,30 @@ This histogram shows simulated claim severities drawn from the Bayesian model. I
 
 ![Posterior Predictive](posterior_predictive.png)
 
+
+
 > 💡 **Bayesian Inference Refresher — Contextualized to Gamma Severity Modeling**
 >
-> In Bayesian statistics, we update our beliefs about model parameters using **Bayes’ Theorem**:
+> In Bayesian statistics, we update our beliefs about model parameters using Bayes’ Theorem:
 >
-> \[
-> \text{Posterior} = \frac{\text{Likelihood} \times \text{Prior}}{\text{Evidence}} \quad \Rightarrow \quad p(\theta \mid x) = \frac{p(x \mid \theta) \cdot p(\theta)}{p(x)}
-> \]
+> **Posterior ∝ Likelihood × Prior**
+>
+> Formally:
+>
+> `p(θ | x) = (p(x | θ) * p(θ)) / p(x)`
 >
 > Where:
-> - \( \theta \) = model parameters (e.g., shape \(\alpha\), rate \(\beta\) of the Gamma distribution)
-> - \( x \) = observed loss severities
-> - \( p(\theta) \) = prior belief about parameters (e.g., HalfNormal for \(\alpha, \beta\))
-> - \( p(x \mid \theta) \) = likelihood of observed data given parameters
-> - \( p(\theta \mid x) \) = posterior distribution of parameters after seeing data
+> - `θ` = model parameters (e.g., shape α, rate β of the Gamma distribution)
+> - `x` = observed loss severities
+> - `p(θ)` = prior belief about parameters (e.g., HalfNormal for α, β)
+> - `p(x | θ)` = likelihood of data given parameters
+> - `p(θ | x)` = posterior distribution after seeing data
 >
-> In our case, we used:
+> In our case:
 >
-> \[
-> \begin{align*}
-> \alpha &\sim \text{HalfNormal}(\sigma = 10) \\\\
-> \beta &\sim \text{HalfNormal}(\sigma = 1 \times 10^{-4}) \\\\
-> x_i &\sim \text{Gamma}(\alpha, \beta)
-> \end{align*}
-> \]
+> - `α ~ HalfNormal(σ = 10)`
+> - `β ~ HalfNormal(σ = 1e-4)`
+> - `x_i ~ Gamma(α, β)`
 >
-> PyMC used MCMC to sample from the posterior \( p(\alpha, \beta \mid x) \), giving us a full probabilistic picture of claim severity behavior.
+> Using PyMC, we sampled from the posterior `p(α, β | x)` using MCMC, which gave us a full probabilistic estimate of claim severity risk.
 
