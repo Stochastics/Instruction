@@ -155,72 +155,68 @@ This histogram shows simulated claim severities drawn from the Bayesian model. I
 ![Posterior Predictive](posterior_predictive.png)
 
 
-> 💡 **Bayesian Inference — Simple Example with Normal Likelihood and Normal Prior**
+
+> 💡 **Bayesian Inference — Normal Likelihood with Uniform Prior**
 >
-> Let's say we observe data from a Normal distribution with **known variance** (σ² = 1), but we **don’t know the mean** (μ). Our goal is to estimate μ using Bayesian inference.
->
-> ---
-> ### 🔍 Step 1: Likelihood
-> Assume we observe one data point:
+> Suppose we want to estimate the mean μ of a Normal distribution. We assume the **variance is known** (σ² = 1). We observe:
 >
 > ```
 > x = 6.0
 > ```
 >
-> We model this as:
+> ---
+> ### 🔍 Step 1: Likelihood
+> Our model is:
 >
 > ```
-> x ~ Normal(μ, σ²=1)
+> x ~ Normal(μ, σ² = 1)
 > ```
 >
-> The **likelihood function** is:
+> The **likelihood function** (up to a constant) is:
 >
 > ```
 > p(x | μ) ∝ exp( -0.5 * (x - μ)² )
 > ```
 >
+> Plugging in our data:
+>
+> ```
+> p(6 | μ) ∝ exp( -0.5 * (6 - μ)² )
+> ```
+>
 > ---
-> ### 🎯 Step 2: Prior
-> Suppose we believe μ is around 0, but we're uncertain. We use a **Normal prior**:
+> ### 🧱 Step 2: Prior — Uniform
+> Suppose we have **no strong belief** about μ, except that it's between -10 and 10:
 >
 > ```
-> μ ~ Normal(0, τ²=4)
+> μ ~ Uniform(-10, 10)
 > ```
 >
-> The **prior distribution** is:
+> So:
 >
 > ```
-> p(μ) ∝ exp( -0.5 * (μ - 0)² / 4 )
+> p(μ) = constant for -10 ≤ μ ≤ 10
 > ```
 >
 > ---
 > ### 🧠 Step 3: Posterior ∝ Likelihood × Prior
-> We combine the two:
+>
+> Since the prior is uniform, the **posterior is proportional to the likelihood** within the bounds:
 >
 > ```
-> p(μ | x) ∝ exp( -0.5 * (x - μ)² ) × exp( -0.5 * (μ² / 4) )
+> p(μ | x=6) ∝ exp( -0.5 * (6 - μ)² )  for μ ∈ [-10, 10]
 > ```
 >
-> Multiply the exponents:
+> This is just a **truncated Normal distribution** centered at 6:
 >
-> ```
-> p(μ | x) ∝ exp( -0.5 * [ (x - μ)² + μ² / 4 ] )
-> ```
->
-> Plug in `x = 6.0`:
->
-> ```
-> p(μ | x=6) ∝ exp( -0.5 * [ (6 - μ)² + μ² / 4 ] )
-> ```
->
-> This is the **unnormalized posterior**. It also turns out to be a Normal distribution! (Because the Normal is conjugate to itself.)
+> - It looks like a bell curve
+> - It is zero outside [-10, 10]
 >
 > ---
 > ### ✅ Result
-> If we do the math, the posterior turns out to be:
+> - Our updated belief about μ is concentrated around 6
+> - It declines symmetrically as we move away
+> - The prior only serves to **clip** the posterior to the allowed region
 >
-> ```
-> μ | x ~ Normal(mean = 4.8, variance = 0.8)
-> ```
->
-> So after seeing the data, our updated belief about μ is centered near 4.8, with much tighter uncertainty than our original prior.
+> This is a simple case where the posterior shape is **entirely driven by the likelihood**, and the uniform prior only sets the boundaries.
+
