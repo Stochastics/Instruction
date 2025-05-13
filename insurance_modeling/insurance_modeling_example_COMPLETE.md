@@ -219,4 +219,86 @@ This histogram shows simulated claim severities drawn from the Bayesian model. I
 > - The prior only serves to **clip** the posterior to the allowed region
 >
 > This is a simple case where the posterior shape is **entirely driven by the likelihood**, and the uniform prior only sets the boundaries.
+> 
+
+## 🧠 Why Use Bayesian Methods?
+
+Bayesian statistics offers several key advantages over classical (frequentist) methods, especially in real-world applications:
+
+---
+
+### ✅ 1. Incorporates Prior Knowledge
+You can include domain expertise, historical data, or expert opinion directly into your model.
+
+**Example:**  
+In medical trials, previous studies on similar drugs can be used to form priors on treatment effect, reducing the sample size needed.
+
+---
+
+### ✅ 2. Produces Full Distributions (Not Just Point Estimates)
+Bayesian models return **posterior distributions**, giving you a full picture of uncertainty instead of just single values and standard errors.
+
+**Example:**  
+In insurance, rather than saying "expected loss = \$100,000", a Bayesian model can provide a full distribution of possible losses with credible intervals.
+
+---
+
+### ✅ 3. Works Well with Small or Noisy Data
+Bayesian methods "shrink" estimates sensibly when data is limited, avoiding overfitting.
+
+**Example:**  
+Startups predicting churn or revenue with very few users can use informative priors to stabilize predictions.
+
+---
+
+### ✅ 4. Natural Framework for Hierarchical Models
+Bayesian inference makes it easy to build models with nested structure (e.g., data grouped by country, store, or patient).
+
+**Example:**  
+Modeling test scores across schools with shared effects — Bayesian models pool information across similar schools.
+
+---
+
+### ✅ 5. Posterior Predictive Checks & Model Comparison
+You can simulate new data from your fitted model and compare it to the real data, or use Bayes Factors to compare models.
+
+**Example:**  
+In manufacturing quality control, you can predict the distribution of defect counts and compare that to observed output.
+
+---
+
+### ✅ 6. Intuitive Probabilistic Interpretation
+Bayesian results are easier to explain:  
+> "There’s a 95% probability that the parameter lies in this range"
+
+Compared to frequentist:
+> "95% of such intervals would contain the parameter if we repeated this experiment forever"
+
+**Example:**  
+When presenting results to non-technical stakeholders, Bayesian intervals feel more natural and actionable.
+
+---
+
+### ✅ 7. Better Handling of Missing Data
+Bayesian methods can model the missing data mechanism directly and impute values as part of inference.
+
+**Example:**  
+In survey data, where some responses are missing, Bayesian models can estimate the missing values along with model parameters.
+
+---
+
+### ☀️ Bonus Example: The Sunrise Problem
+
+The **frequentist approach** struggles with questions like:
+
+> "What is the probability that the sun will rise tomorrow?"
+
+A frequentist might say:  
+> "That question doesn’t make sense — the sun either will or won’t rise. We can’t assign a probability to a one-time event."
+
+But the **Bayesian approach** handles this naturally.
+
+After seeing the sun rise for 10,000 days, we can model:
+
+
 
