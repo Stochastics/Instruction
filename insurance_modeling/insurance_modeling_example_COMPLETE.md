@@ -293,12 +293,30 @@ The **frequentist approach** struggles with questions like:
 
 > "What is the probability that the sun will rise tomorrow?"
 
-A frequentist might say:  
-> "That question doesn’t make sense — the sun either will or won’t rise. We can’t assign a probability to a one-time event."
+A frequentist might respond:
 
-But the **Bayesian approach** handles this naturally.
+> "That question doesn’t make sense — the sun either will or won’t rise. We can't assign a probability to a unique, non-repeatable event."
 
-After seeing the sun rise for 10,000 days, we can model:
+In frequentist statistics, probabilities are defined as the long-run frequency of events in repeated trials. Since we can’t repeat “tomorrow” under identical conditions, the frequentist approach can’t give a meaningful answer.
 
+If we tried to model this using frequentist tools, we might represent each day as a **Bernoulli random variable**, where a value of 1 means the sun rose. After 10,000 days — all with value 1 — the frequentist estimate of the probability of sunrise is:
 
+```
+P(sunrise) = number of successes / number of trials = 10,000 / 10,000 = 1.0
+```
+
+That gives us a **100% probability**, implying absolute certainty — no room for doubt or unknowns. But we know from a practical standpoint that catastrophic events *could* prevent the sun from rising. So this model is overconfident and inflexible.
+
+In contrast, the **Bayesian approach** handles this naturally.
+
+We can still model each sunrise as a Bernoulli trial, but now we introduce a **prior belief** — for example, a Beta distribution, such as `Beta(1, 1)` (a uniform prior). After observing 10,000 sunrises, our **posterior distribution** becomes `Beta(10,001, 1)`. From this, we can compute:
+
+```
+P(sunrise tomorrow) = 10,001 / (10,001 + 1) ≈ 0.9999
+```
+
+So instead of blindly saying “100%,” we now have a probability that reflects strong confidence *with a sliver of uncertainty* — which matches how real-world reasoning works.
+
+This is one of the key strengths of the Bayesian approach:  
+It allows us to quantify uncertainty, even for events that occur only once.
 
